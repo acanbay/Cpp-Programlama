@@ -1,3 +1,6 @@
+/*
+Kullanicidan alinan sayilarin ortalamasini bulan program
+*/
 #include<iostream>
 using namespace std;
 int main(){
