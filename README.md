@@ -19,9 +19,8 @@ Kısa bilgilendirmeler ve örnekleri içermektedir.
 [10. Kalıtım (Inheritance)](#10)  
 [11. Overloading](#11)  
 [12. İleri NYP](#12)  
-[13. Polymorphism](#13) 	
-[14. Hata Ayıklama](#14) 
-[15. Kütüphane Oluşturma](#15) 
+[13. Hata Ayıklama](#13) 
+[14. Kütüphane Oluşturma](#14) 
 
 <a name="1"/>
 
@@ -241,7 +240,7 @@ else(koşulN){
 
 ```C
 switch (secenekler){
-    case seenek1: 
+    case secenek1: 
         yapılacak işlemler ; 
         break;
     case secenek2: 
@@ -286,7 +285,7 @@ do{
 **for**
 
 `for` döngüsü de `while` gibi içindeki şart sağlandığı sürece döngüye devam eder. Şart bozulduğunda döngüden çıkılır.
-while’den farklı olarak kesin bir ifadeyi test etmez ve değişken bir ifade kullanır. Kendi şartını kendi içerisindeki işlemle deüiştirir.
+while’den farklı olarak kesin bir ifadeyi test etmez ve değişken bir ifade kullanır. Kendi şartını kendi içerisindeki işlemle değiştirir.
 
 ```C++
 for(i=0;i<#;i++){
@@ -324,7 +323,7 @@ int carpma(int x, int y){
    return x*y;
  }
 ```
-fonksiyonu 2 değer ile çağırılır ve çıktı olarak değerlerin çarpımınu döndürür.
+fonksiyonu 2 değer ile çağırılır ve çıktı olarak değerlerin çarpımını döndürür.
 
 **Recursive fonksiyonlar**
 
@@ -399,7 +398,7 @@ int *alan = (int *)calloc(miktar*size);
 
 **`realloc`**
 
-Ayrılan alanı yeniden boyurlandırır.
+Ayrılan alanı yeniden boyutlandırır.
 
 ```C++
 *alan = realloc(*alan,miktar*size);
@@ -424,7 +423,7 @@ Diziler aslında içerisinde birden fazla değer tutan değişken tipleridir.
 ```C++
 int dizi[4] = {1,2,3,4};
 ```
-şeklinde tamsayı dizilri oluşturulabilir. Daha sonra içerisindeki değerlere ulaşılmak indislerden yararlanılır. Örneğin bu dizideki 1 değeri dizinin 0. değişkenidir (diziler 0'dan başlar) ve `dizi[0]` şeklinde kullanılır. Yine dizinin bir değerini değiştirmek istersek de benzer şekilde indislerden yararlanırız. örneğin 3. değerini 5 yapmak istersek `dizi[3] = 5` şeklinde değer atarız.
+şeklinde tamsayı dizileri oluşturulabilir. Daha sonra içerisindeki değerlere ulaşılmak indislerden yararlanılır. Örneğin bu dizideki 1 değeri dizinin 0. değişkenidir (diziler 0'dan başlar) ve `dizi[0]` şeklinde kullanılır. Yine dizinin bir değerini değiştirmek istersek de benzer şekilde indislerden yararlanırız. örneğin 3. değerini 5 yapmak istersek `dizi[3] = 5` şeklinde değer atarız.
 
 Boş bir dizi oluşturmak için ise `int dizi[];` şeklinde tanım yapılabilir.
 
@@ -446,7 +445,7 @@ char dizi[4]="ali";
 ```
 şeklinde daha kolay bir yol da kullanılabilir. 
 
-Karakter dizileri pointer olarak da tanımlanabilir. Bu durumda çift tırnak oromatik olarak dizi sonuna `\0` koyar ve dizinin boyutunu vermek gerekmez.
+Karakter dizileri pointer olarak da tanımlanabilir. Bu durumda çift tırnak otomatik olarak dizi sonuna `\0` koyar ve dizinin boyutunu vermek gerekmez.
 
 ```C++
 char *dizi = "ali";
@@ -492,7 +491,7 @@ String'ler için işlemleri kolaylaştıran fonksiyonlardır.
 int dizi[#1][#2]. . .;
 ```
 
-şeklinde tanımlanan dizilerdir (#'lar yerine sayı gelecektir). #1 dizi içinde kaç bölüm olduğunu (matrislerde sutun sayısını), #2 ise her bölümün elemanını (sayır sayısını) belirtir. Ulaşılmak istenen değer için 2 indis kullanılır. Bir örnekle gösterecek olursak,
+şeklinde tanımlanan dizilerdir (#'lar yerine sayı gelecektir). #1 dizi içinde kaç bölüm olduğunu (matrislerde sütun sayısını), #2 ise her bölümün elemanını (satır sayısını) belirtir. Ulaşılmak istenen değer için 2 indis kullanılır. Bir örnekle gösterecek olursak,
 
 ```C
 int dizi[3][2] = {{1,2},{3,4},{5,6}};
@@ -569,6 +568,7 @@ while(!file.eof()){
 <a name="8"/>
 
 ## 8. Temel Kavramlar ve Nesne Yönelimi  
+*15 ve 16. örnekler bu bölümle ilgilidir.*
 
 Nesne yönelimli programlama kavramları nesneler üzerinden ele alır. Bunu yaparken yapısal programlamanın özelliklerini de taşır. nesnelerin kendi özellikleri ve metotları vardır.
 
@@ -593,7 +593,7 @@ Burada kullanılan `public:` ise sınıf özelliklerinin dışarıya açık olup
 
 **`nesne`**
 
-Bir sınıfın nesneleri `int main()` içerisinde tanımlanır ve tanımlanan nesneslerin özellikleri belirlenebilir.
+Bir sınıfın nesneleri `int main()` içerisinde tanımlanır ve tanımlanan nesnelerin özellikleri belirlenebilir.
 
 ```C++
 int main(){
@@ -621,6 +621,7 @@ class sınıf{
 <a name="9"/>
 
 ## 9. Kapsülleme (Encapsulation) 
+*17 ve 18. örnekler bu bölümle ilgilidir.*
 
 `sınıf` içerisindeki özelliklerin gizli olması durumudur. Bu gizli özellikler de `Set` ve `Get` metotları ile anlam kazanır.
 
@@ -641,11 +642,12 @@ class sınıf{
   int sayi;
 };
 ```
-şeklinde bir sınıf tanımlandığında `sayi` bilgisi `privare` olarak oluşturulur. Bu nedenle `int main()` içerisinde `sayi`'ya direk değer atanamaz. Onun yerine bir Set metotu tanımlanır. Böylece `sayiSet(#)` denildiğinde `#` değeri `sayi`'ya atanır. Aynı şekilde `sayi`'nin değeri direk olarak okunamayacağından bir Get metotu yazılarak `sayiGet()` komutu ile `sayi`'nın değeri okunabilir.
+şeklinde bir sınıf tanımlandığında `sayi` bilgisi `privare` olarak oluşturulur. Bu nedenle `int main()` içerisinde `sayi`'ya direk değer atanamaz. Onun yerine bir Set metodu tanımlanır. Böylece `sayiSet(#)` denildiğinde `#` değeri `sayi`'ya atanır. Aynı şekilde `sayi`'nin değeri direk olarak okunamayacağından bir Get metodu yazılarak `sayiGet()` komutu ile `sayi`'nın değeri okunabilir.
 
 <a name="10"/>
 
 ## 10. Kalıtım (Inheritance) 
+*19. örnek bu bölümle ilgilidir.*
 
 Bir sınıfın alt sınıflarının oluşması ve ana sınıfın özelliklerini de taşıması durumudur.
 
@@ -674,7 +676,7 @@ class calisan : public insan{
 };
 ```
 
-program parçasına baktığımızda insan isimli bir sınıv ve bu sınıfın calisan isimli bir alt sınıfı olduğunu görüyoruz. calisan sınıfı hem insan sınıfının özelliklerini hem de kendi özelliklerini taşımaktadır. Ancak calisan sınıfı insan sınıfına `public` olarak bağlı olduğundan `private` bilgiye direk erişemez. bu bilgiye erişim sağlanabilmesi için insan sınıfı içerisinde `private` bölümünün `protected` şeklinde değişmesi gerekir.
+program parçasına baktığımızda insan isimli bir sınıf ve bu sınıfın calisan isimli bir alt sınıfı olduğunu görüyoruz. calisan sınıfı hem insan sınıfının özelliklerini hem de kendi özelliklerini taşımaktadır. Ancak calisan sınıfı insan sınıfına `public` olarak bağlı olduğundan `private` bilgiye direk erişemez. bu bilgiye erişim sağlanabilmesi için insan sınıfı içerisinde `private` bölümünün `protected` şeklinde değişmesi gerekir.
 
 ```C++
 class insan{
@@ -703,6 +705,7 @@ Böylelikle calisan sınıfı yas bilgisine erişebilir. Ancak bu bilgi `int mai
 <a name="11"/>
 
 ## 11. Overloading
+*20. örnek bu bölümle ilgilidir.*
 
 Halihazırda bulunan metotların farklı anlamlar yüklenerek yeniden oluşturulmasıdır.
 
@@ -746,6 +749,7 @@ böylelikle `this` komutu özellik olan boyun adresine işaret ettiğinden, öze
 <a name="12"/>
 
 ## 12. İleri NYP
+*21 ve 23. örnekler bu bölümle ilgilidir.*
 
 **Constructor**
 
@@ -765,7 +769,7 @@ class insan{
 };
 ```
 
-Tanımlamalası insan sınıfında oluşacak her nesne için ön tanımlı (default) olarak boy ve kilo değerleri verir.
+Tanımlaması insan sınıfında oluşacak her nesne için ön tanımlı (default) olarak boy ve kilo değerleri verir.
 
 ```C++
 class insan{
@@ -811,7 +815,7 @@ insan::insan(int a, int b){
 
 **Destructors**
 
-Bşr nesne yok edilmeden (program kapanınca da nesne kapanp yok edilir) hemen önce yıkıcı fonksiyon (destructor) çalışır.
+Bir nesne yok edilmeden (program kapanınca da nesne kapanıp yok edilir) hemen önce yıkıcı fonksiyon (destructor) çalışır.
 
 sınıf içerisinde:
 
@@ -840,18 +844,16 @@ class *pointer_nesne;
 pointer_nesne = &nesne;
 ```
 
-yapılarak nesneler pointer gibi tanımlanabilir. Bu durumda nesne özelliklerine `pointer_nesne->özellik`şeklinde ulaşılır.
+yapılarak nesneler pointer gibi tanımlanabilir. Bu durumda nesne özelliklerine `pointer_nesne->özellik` şeklinde ulaşılır.
 
 
-<a name="13"/>
-
-## 13. Polymorphism
+**Polymorphism**
 
 Polymorphism, bir işin farklı şekillerde yapılabilmesidir.
 
 Örnek:
 
-şekil adından bir dınıf oluşturulup alan metodu tanımlanabilir. Ancak alan metodu kare için farklı çember için farklı davranmalıdır.
+şekil adından bir sınıf oluşturulup alan metodu tanımlanabilir. Ancak alan metodu kare için farklı çember için farklı davranmalıdır.
 
 ```C++
 class sekil{
@@ -890,9 +892,10 @@ gibi tanımlanan metotlara soyut metot denir. En az bir soyut metot sahibi olan 
 Soyut sınıflardan nesne oluşturulamaz, ancak alt sınıflarına özellik aktarabilir (alt sınıfları soyut olmayabilir).
 
 
-<a name="14"/>
+<a name="13"/>
 
-## 14. Hata Ayıklama
+## 13. Hata Ayıklama
+*24 ve 25. örnekler bu bölümle ilgilidir.*
 
 Beklenmedik durumlarda programın nasıl davranacağını belirten durumlardır.
 
@@ -937,9 +940,10 @@ int main(){
 }
 ```
 
-<a name="15"/>
+<a name="14"/>
 
-## 15. Kütüphane (Header) Oluşturma
+## 14. Kütüphane (Header) Oluşturma
+*26. örnek bu bölümle ilgilidir.*
 
 i.   Kütüphane dosyası içerisinde sınıflar ve metot isimleri belirlenir.
 
