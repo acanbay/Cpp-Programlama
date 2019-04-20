@@ -1,3 +1,10 @@
+/*
+İsci problemleri cozen program
+
+1. Kullanicidan ilk veriler alinir
+2. Kullanicinin ne istedigi belirlenir 
+3. Istege gore hesaplamalar yapilir ve sonuc ekrana bastirilir
+*/
 #include<iostream>
 using namespace std;
 
@@ -5,13 +12,14 @@ int main(){
 	double isci, y_isci, is, y_is, zaman, y_zaman;
 	char secim;
 	baslangic:
+	//1
 	cout << "Mevcut isci sayisi:" << endl;
 	cin >> isci ;
 	cout << "Yapilan toplam is:" << endl;
 	cin >> is ;
 	cout << "Gecen zaman:" << endl;
 	cin >> zaman ;
-	
+	//2
 	secenekler:
 	cout << "Hesaplanmak istenen nedir?" << endl;
 	cout << "a: Yeni isci sayisi" << endl;
