@@ -1,3 +1,4 @@
+/* Ekrana "Merhaba Dunya" yazisi bastirilacak */
 #include<iostream> // Genel kutuphane
 using namespace std; // Bu kullanilmazsa cout gibi komutlar std::cout olmalidir.
 
