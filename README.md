@@ -19,8 +19,9 @@ Kısa bilgilendirmeler ve örnekleri içermektedir.
 [10. Kalıtım (Inheritance)](#10)  
 [11. Overloading](#11)  
 [12. İleri NYP](#12)  
-[13. Hata Yakalama](#13)   
-
+[13. Polymorphism](#13) 	
+[14. Hata Ayıklama](#14) 
+[15. Kütüphane Oluşturma](#15) 
 
 <a name="1"/>
 
@@ -62,13 +63,13 @@ ise 0 değeri döndüren bir koddur. Böylelikle programın sonlandığını bel
 
 C++ kodlarını terminalden derlemek için:
 ```
-g++ programismi.cpp -o program.exe
+g++ programismi.cpp -o program
 ```
 komutu kullanılır. Burada "program" ve "programismi" sadece göstermek için kullanılmış isimlerdir. .cpp uzantılı dosyanızın adı ve sizin programa vermek istediğiniz ada göre değiştirilebilirler.
 
 Daha sonra derlenen program,
 ```
-./program.exe
+./program
 ```
 komutu ile çalıştırılır.
 
@@ -298,7 +299,7 @@ for(i=0;i<#;i++){
 ## 4. Fonksiyonlar
 *8, 9, 10 ve 11. örnekler bu bölümle ilgilidir.*
 
-`main()` dışında tanımlanan ve `main()` içerisinde çağırıldığında bi takım işlemler ve sonuç ile gelen yapılardır.
+`int main()` dışında tanımlanan ve `int main()` içerisinde çağırıldığında bi takım işlemler ve sonuç ile gelen yapılardır.
 
 **void fonksiyonu**
 
@@ -587,7 +588,7 @@ class sınıf{
 
 şeklinde tanımlanır. Özellikleri her veri tipinden olabilir.
 
-Burada kullanılan `public:` ise sınıf özelliklerinin dışarıya açık olup olmadığını belirler. `public:` içerisindeki özelliklere sınıf dışarısından erişilebilirken `private:` içerisindeki özelliklere sınıf dışarısından erişilemez (ancak erişilmek için `public:` içerisinde metotlar tanımlanabilir). Bunların dışında kalan diğer bir durum ise `protected:` durumudur. Bunun içindeki özellikler `main()` içerisine gizliyken alt sınıflara açık haldedirler ([10. Kalıtım (Inheritance)](#10) bölümünde açıklanacaktır)
+Burada kullanılan `public:` ise sınıf özelliklerinin dışarıya açık olup olmadığını belirler. `public:` içerisindeki özelliklere sınıf dışarısından erişilebilirken `private:` içerisindeki özelliklere sınıf dışarısından erişilemez (ancak erişilmek için `public:` içerisinde metotlar tanımlanabilir). Bunların dışında kalan diğer bir durum ise `protected:` durumudur. Bunun içindeki özellikler `int main()` içerisine gizliyken alt sınıflara açık haldedirler ([10. Kalıtım (Inheritance)](#10) bölümünde açıklanacaktır)
 
 **`nesne`**
 
@@ -725,18 +726,255 @@ Görüldüğü gibi `set` fonksiyonu iki kere ve farklı bir şekilde tanımlanm
 
 **Operator overloading**
 
+sınıf içerisinde tanımlanan özelliklerin aynı isimlerde değişkenlere göre tanımlanmasına izin verir.
 
+Örnek:
 
+```C++
+class insan{
+  public:
+  int boy;
+  int SetBoy(int boy){
+    this->boy = boy;
+  }
+};
+```
+
+böylelikle `this` komutu özellik olan boyun adresine işaret ettiğinden, özellik olarak tanımlanan boy ile değişken olan boy birbirine karışmazlar. 
 
 <a name="12"/>
 
 ## 12. İleri NYP
 
+**Constructor**
+
+Nesne oluşturulduğunda ilk çalışacak olan fonksiyondur. Nesne ile aynı isme sahip olmalıdır.
+
+Örnek:
+
+```C++
+class insan{
+  public:
+  int boy;
+  int kilo;
+  insan(){
+    boy = 30;
+    kilo = 3;
+  }
+};
+```
+
+Tanımlamalası insan sınıfında oluşacak her nesne için ön tanımlı (default) olarak boy ve kilo değerleri verir.
+
+```C++
+class insan{
+  public:
+  int boy;
+  int kilo;
+  insan(){
+    boy = 30;
+    kilo = 3;
+  }
+  insan(int a, int b){
+    boy = a;
+    kilo = b;
+  }
+};
+```
+Tanımlamasında ise yine ön tanımlı değerler vardır. Ancak istenilirse nesne oluşturulurken kilo ve boy değerlerinin
+
+```C++
+int main(){
+  insan ali(175,65);
+}
+```
+şeklinde tanımlanmasına da izin verir.
+
+Constructor ifadeleri sınıf dışında da
+
+```C++
+class insan{
+  public:
+  int boy;
+  int kilo;
+  }
+};
+
+insan::insan(int a, int b){
+  boy = b;
+  kilo = b;
+}
+```
+
+şeklinde tanımlanabilir.
+
+**Destructors**
+
+Bşr nesne yok edilmeden (program kapanınca da nesne kapanp yok edilir) hemen önce yıkıcı fonksiyon (destructor) çalışır.
+
+sınıf içerisinde:
+
+```C++
+  ~insan(){
+    yapilacaklar;
+  }
+```
+
+ve sınıf dışarısında:
+
+```C++
+  insan::~insan(){
+    yapilacaklar;
+  }
+```
+şeklinde tanımlanırlar.
+
+**Nesne pointer'ları**
+
+yapısal programlamada olduğu gibi nesnelerde de pointer tanımları yapmak mümkündür. `int main()` içerisinde:
+
+```C++
+class nesne;
+class *pointer_nesne;
+pointer_nesne = &nesne;
+```
+
+yapılarak nesneler pointer gibi tanımlanabilir. Bu durumda nesne özelliklerine `pointer_nesne->özellik`şeklinde ulaşılır.
+
+
 <a name="13"/>
 
-## 13. Hata Yakalama
+## 13. Polymorphism
+
+Polymorphism, bir işin farklı şekillerde yapılabilmesidir.
+
+Örnek:
+
+şekil adından bir dınıf oluşturulup alan metodu tanımlanabilir. Ancak alan metodu kare için farklı çember için farklı davranmalıdır.
+
+```C++
+class sekil{
+  public:
+  int uzunluk;
+  sekil(int x){
+    uzunluk = x;
+  }
+  virtual void alan(){  // Burada tanımlanan fonksiyonu sanal bir fonksiyon yapar. Asıl fonksiyon alt sınıflardan gelir.
+  }
+};
+
+class kare:public sekil{
+  kare(int x):sekil(x){}  // Şekil constructor'unu çember constructor'u olarak kullanabilmeyi sağlar
+  int alan(){
+    return uzunluk*uzunluk;
+  }
+}
+class cember:public sekil{
+  cember(int x):sekil(x){}  // Şekil constructor'unu çember constructor'u olarak kullanabilmeyi sağlar
+  int alan(){
+    return 3.14*uzunluk*uzunluk;
+  }
+}
+```
+
+şeklinde alan fonksiyonu iki alt sınıf için ayrı hesaplanabilir. Böylelikle hangi sınıfın nesnesi çağırılırsa o sınıfa göre hesap yapılır.
+
+**Soyut (abstract) metot ve soyut (abstract) sınıf**
+
+```C++
+virtual double metot()=0;
+```
+gibi tanımlanan metotlara soyut metot denir. En az bir soyut metot sahibi olan sınıflar da soyut sınıf olarak adlandırılır.
+
+Soyut sınıflardan nesne oluşturulamaz, ancak alt sınıflarına özellik aktarabilir (alt sınıfları soyut olmayabilir).
 
 
+<a name="14"/>
 
+## 14. Hata Ayıklama
+
+Beklenmedik durumlarda programın nasıl davranacağını belirten durumlardır.
+
+`int main()` içerisinde kodlar 
+
+```C++
+try{
+  ...
+}catch(exception i){
+  hata durumunda yapılacaklar;
+}
+```
+şeklinde belirtilir. ... ile gösterilen yere yapılacak işlemler yazılır. Bir sorun oluştuğunda ise ty bloğundan çıkılır ve hata bloğuna girilip hata durumunda yapılacaklar çalıştırılır.
+
+**Özel hata**
+
+Her hataya değil de bazı hatalara özel olarak bakmak da mümkündür. Bu durumda öncelikle `int main()` dışında `exception` sınıfının alt sınıfı olan bir hata sınıfı oluşturulur.
+
+```C++
+class hata:public exception{
+  public:
+  hata durumunda yapılacaklar;
+};
+```
+ardından sınıf içerisinde beklenmedik durumlar tanımlanarak bu hataya gönderilir (**hata fırlatma**).
+
+```C++
+  if(hata koşulu){
+    throw hata;
+  }
+```
+
+Son olarak genel hata yakalamada yaptığımız gibi `int main()` içerisinde `try` bloğu oluşturularak hata test edilir.
+
+```C++
+int main(){
+  try{
+   ...
+  }catch(hata i){
+    hata durumunda yapılacaklar;
+  }
+}
+```
+
+<a name="15"/>
+
+## 15. Kütüphane (Header) Oluşturma
+
+i.   Kütüphane dosyası içerisinde sınıflar ve metot isimleri belirlenir.
+
+ii.  Kütüphane dosyası ile aynı isme sahip bir `.cpp` uzantılı dosyada önce kütüphane dosyası çağırılır ve ardından kütüphane dosyasındaki metotların kullanımı belirlenir.
+
+iii. Son olarak `main.cpp` dosyası içerisinde kütüphane dosyası çağırılarak ilgili program yazılır.
+
+Oluşturulan kütüphane dosyası çağırılırken aynı klasöre konulur ve tırnak işareti arasında çağırılır (dosya derleyicide tanımlı ise -genellikle C++'ın kendi kütüphane dosyaları- <> işaretleri arasında).
+
+**Programı çalıştırma**
+
+**`IDE ile`:**
+
+Eğer bir IDE kullanılıyorsa yeni proje oluşturulup proje içerisinde bu dosyalar hazırlanmalıdır. Daha sonra IDE üzerinden direk çalıştırılabilirler.
+
+**`Terminal ile`:**
+
+Yazım işlemleri bittikten sonra bu üç dosya hazırlandıktan sonra aynı klasöre atılıp terminal açılır ve:
+
+```sh
+g++ -c kutuphane.cpp kutuphane.o
+```
+
+yapılarak kütüphane dosyası ardından
+
+```sh
+g++ -o main main.cpp kutuphane.o
+```
+ile program derlenir.
+
+daha sonra 
+
+```sh
+./main
+```
+
+ile program çalıştırılır.
 
 ____________
