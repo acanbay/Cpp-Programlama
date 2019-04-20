@@ -28,7 +28,7 @@ Kısa bilgilendirmeler ve örnekleri içermektedir.
 ## 1. Giriş
 *1, 2, 3 ve 4. örnekler bu bölümle ilgilidir.*
 
-C++, 1979 yılında Bjarne Stroustrup tarafından BellLabs'da geliştirilen nesne yönelimli ve yüksek seviyeli bir genel amaçlı programlama dilidir.
+C++, 1979 yılında Bjarne Stroustrup tarafından Bell Labs'da geliştirilen nesne yönelimli ve yüksek seviyeli bir genel amaçlı programlama dilidir.
 
 **Genel C++ kod yapısı**
 ```C++
@@ -40,24 +40,17 @@ int main(){
  return 0;                
 }
 ```
-burada
-`#include`,
-kodumuzda kullandığımız hazır komutların kütüphanelerini çağırmamızı sağlar.
-`
+burada `#include`, kodumuzda kullandığımız hazır komutların kütüphanelerini çağırmamızı sağlar.
 
-`using namespace std`, std fonksiyonlarını kısa bir şekilde kullanmamızı sağlar. Kullanılmadığı durumda ,en basit örnekleme ile, std fonksiyonlarının başına her kullandığımızda `std::` yazmamız gerekir.
+`using namespace std`, std fonksiyonlarını kısa bir şekilde kullanmamızı sağlar. Kullanılmadığı durumda ,en basit örnekleme ile, her std fonksiyonunun başına `std::` yazılması gerekir.
 
-int main(){...}
- `
-kısmı ana kodumuzu barındıran bölümdür. Program çalıştırıldığında ilk olarak bu bölüm çalışır. 
-`
-return 0;
- `
-ise 0 değeri döndüren bir koddur. Böylelikle programın sonlandığını belirtir.
+`int main(){...} ` kısmı ana kodumuzu barındıran bölümdür. Program çalıştırıldığında ilk olarak bu bölüm çalışır. 
+
+`return 0;` ise 0 değeri döndüren bir koddur. Böylelikle programın sonlandığını belirtir.
 
 **Yorumlar**
 
-/* ile başlayıp */ ile biten bölümlere yorum bloğu denir. // ile başlıyan bölümler ise yorum satırlarıdır. Yorum blokları içerisindeki her satır ve paragrafı yorum olarak belirtir, yorum satırı ise sadece satırda tanımlıdır ve alt satıra geçildiğinde kendiliğinden yorum dışına çıkar. Bu bölümlerde yazdıklarınız program tarafından görülmezler. Başkalarının da programı anlayabilmesi için eklenirler.
+/* ile başlayıp */ ile biten bölümlere yorum bloğu denir. // ile başlayan bölümler ise yorum satırlarıdır. Yorum blokları içerisindeki her satır yorum olarak belirtilir, yorum satırı ise sadece satırda tanımlıdır ve alt satıra geçildiğinde kendiliğinden yorum dışına çıkar. Bu bölümlerde yazdıklarınız program tarafından görülmezler.
 
 **Kod derleme ve çalıştırma**
 
@@ -77,26 +70,26 @@ komutu ile çalıştırılır.
 
 C++ dilinde kullanılan önemli değişkenler aşağıdaki gibidir:
 
-`char`: değişkenin karakter olduğunu belirtir.    
+`char`, değişkenin karakter olduğunu belirtir.    
 `char`    : 8 bit   
 `char16_t`: 16 bit    
 `char32_t`: 32 bit    
 
-`integer`: değişkenin tamsayı olduğunu belirtir.    
+`integer`, değişkenin tamsayı olduğunu belirtir.    
 `int`           : 16 bit    
 `short int`     : 16 bit    
 `long int`      : 32 bit    
 `long long int` : 64 bit    
 
-`float`: ondalık sayı değişkenleridir.      
+`float`, ondalık sayı değişkenidir.      
 `float`       : 32 bit    
 `double`      : 64 bit    
 `long double` : 80 bit    
 
-`boolean`: 1 ve 0 değerleirni alan mantık değişkenidir.
+`boolean`, 1 ve 0 değerlerini alan mantık değişkenidir.
 `bool`: 1 bit
 
-`void`: belirli olmayan tipte değişkendir.
+`void`, belirli olmayan tipte değişkendir.
 `void`: depolama alanı yok
 
 ```C
@@ -106,12 +99,13 @@ float c=7.3;
 char d='A';
 ```
 
-şeklinde tanımlanırlar. Bu tanımlamlardan sonra a, b, c veya d her çağırıldıklarında karşılarındaki değerleri taşıyan değişkenler olarak gelirler.
+şeklinde tanımlanırlar. Bu tanımlamalardan sonra a, b, c veya d her çağırıldıklarında karşılarındaki değerleri getirirler.
 
 
 **Tip Dönüştürme**
 
-Bir değişkenin tipinin başka bir değişken tipine çevrilmesi işlemidir. Örneğin karakter tipli bir değişken tanımlandıktan sonra tamsayı tipine çevrilebilir. Bu durumda içerideki karakter bilgisi kaybolup yerine o karakterin ASCII tablosundaki sayısal değeri işlenecektir. Yine kesirli sayı tipli bir veri tamsayı tipine dönüştürülebilir. Bu durumda ise sayının sadece tamsayı olan kısmı alınıp diğerleri alınmayacaktır.
+Bir değişkenin tipinin başka bir değişken tipine çevrilmesi işlemidir. Örneğin karakter tipli bir değişken tanımlandıktan sonra tamsayı tipine çevrilebilir. Bu durumda içerideki karakter bilgisi kaybolup yerine, o karakterin ASCII tablosundaki sayısal değeri işlenecektir. 
+Yine kesirli sayı tipli bir veri tamsayı tipine dönüştürülebilir. Bu durumda ise sayının sadece tamsayı olan kısmı alınıp diğerleri alınmayacaktır.
 
 Kod içerisinde
 
@@ -121,41 +115,41 @@ double d = 8.987;
 int a = (int)c;
 int b = (int)d;
 ```
-şeklinde tnaımlanırlar.
+şeklinde tanımlanırlar.
 
 **işlemciler ve operatörler**
 
 `+`   : toplama    
-`-`	  : çıkarma   
-`*`	  : çarpma    
+`-`   : çıkarma   
+`*`   : çarpma    
 `/`   : bölme   
 `%`   : modül alma    
 `++`  : bir arttırma    
 `--`  : bir azaltma   
 `=`   : atama   
 
-`a++` : a'yı 1 arttırır (`a = a + 1` ile aynı anlamdadır)    
-`a--`	: a'yı 1 azaltır (`a = a - 1` ile aynı anlamdadır)    
-`a += 5`	: a'yı 5 arttırır (`a = a + 5` ile aynı anlamdadır)    
+`a++`    : a'yı 1 arttırır (`a = a + 1` ile aynı anlamdadır)    
+`a--`	 : a'yı 1 azaltır (`a = a - 1` ile aynı anlamdadır)    
+`a += 5` : a'yı 5 arttırır (`a = a + 5` ile aynı anlamdadır)    
 `a -= 6` : a'yı 6 eksiltir (`a = a - 6` ile aynı anlamdadır.)    
 `a *= 3` : a'yı 3 ile çarpar (`a = a * 3` ile aynı anlamdadır.)    
 `a /= 4` : a'yı 4 e böler (`a = a / 4` ile aynı anlamdadır.)    
 
-`<`	  : küçüktür  
-`>`	  : büyüktür  
+`<`	: küçüktür  
+`>`	: büyüktür  
 `<=`	: küçük eşittir  
 `>=`	: büyük eşittir    
 `==`	: eşittir 
 `!=`	: farklıdır    
 `||`	: veya    
 `&&`	: ve    
-`!`	  : değil 
+`!`	: değil 
 
 **Temel Girdi Çıktı**
 
 **`printf()`:**
 
-Sadece ekrana yazı bastırılmak istendiğinden `printf` fonksiyonu,
+Ekrana yalnız yazı bastırılmak istendiğinden `printf` fonksiyonu,
 ```C++
 printf("Yazılmak istenen");
 ```
@@ -164,7 +158,7 @@ printf("Yazılmak istenen");
 ```C++
 printf("a değeri: %d",a);
 ```
-şeklinde tanımlamamız gerekir. Burara `%d` ile gösterilen kısım, `printf()` fonksiyonuna ekrana bastırılacak `a` değişkeninin yerini ve formatını belirtir. Integer değerler için `%d` olarak kullanılır. Diğer formatların kullanımı da aşağıda verilmiştir.
+şeklinde tanımlamamız gerekir. Burada `%d` ile gösterilen kısım, `printf()` fonksiyonuna ekrana bastırılacak `a` değişkeninin yerini ve formatını belirtir. Integer değerler için `%d` olarak kullanılır. Diğer formatların kullanımı da aşağıda verilmiştir.
 
 ```
 int   : %d
@@ -180,9 +174,15 @@ printf("a değeri: %.2f",a);
 ```
 gibi bir kullanım yapabiliriz. Gelecek değişkenin formatını belirttiğimiz bölümde nokta koyup sonra kaçıncı basamağa gitmek istediğimizi belirtebiliriz.
 
+`printf()` içerisinde tırnak içinde yazı ile birlikte kullanılan özel tanımlar da vardır.
+
+`\t`  : sonrasında bir tab kadar boşluk bırakır
+`\n`  : sonrasında alt satıra geçilir
+`\a`  : bir ses çıkarır (sistemde öntanımlı hata sesi)
+
 **`scanf()`:**
 
-Bu fonksiyon kullanılırken önce tırnak işareti içerisinde alınacak değişkenin formatı belirtilir. Daha sonra ise `&` kullanılarak değişkenin hangi adreste saklanacağı bilgisayara tanımlanır (Pointers bölümünde ayrıntısı verilecektir).
+Bu fonksiyon kullanılırken önce tırnak işareti içerisinde alınacak değişkenin formatı belirtilir. Daha sonra ise `&` kullanılarak değişkenin hangi adreste saklanacağı bilgisayara tanımlanır (pointers bölümünde bu işaretin nedeni görülecektir).
 
 ```C++
 scanf("%d",&a);
@@ -193,10 +193,10 @@ scanf("%d",&a);
 `cout`, ekrana hızlı bir şekilde yazı bastırmaya yarayan bir komuttur.
 
 ```C++
-cout<< "yazı" << degisken << endl;
+cout<< "yazı" << degişken << endl;
 ```
 
-şeklinde kullanılır. Yazı yazmak için çift tırnak kullanılır. Değişkenler ise direk isimleri yazılarak bastırılabilir. `endl` "satır sonu" (end of the line) anlamına gelir ve o satıra daha fazla bastırma yapılamaz. Yeni basılacaklar alt satırdan başlar.
+şeklinde kullanılır. Yazı yazmak için çift tırnak kullanılır. Değişkenler ise direk isimleri yazılarak bastırılabilir. `endl` "satır sonu" (end of the line) anlamına gelir ve o satıra daha fazla yazı bastırılmaz. Yeni basılacaklar alt satırdan başlar.
 
 <a name="cin"/>
 **`cin`:**
@@ -215,7 +215,7 @@ cin>>veri;
 
 **if, if else, else**
 
-`if` yapısı, istediği koşullar sağlandığı sürece içindeki işlemlerin yapıldığı kalıplardan oluşur. Eğer koşul sağlanmıyorsa yapıya girilmez ve o bölüm atlanır.
+`if` yapısı, beklenen koşullar sağlandığı sürece içindeki işlemlerin yapıldığı kalıplardan oluşur. Eğer koşul sağlanmıyorsa yapıya girilmez ve o bölüm atlanır.
 
 ```C
 if(koşul1){
@@ -237,11 +237,11 @@ else(koşulN){
 
 **switch-case**
 
-`switch-case` yapısı seçenekler üzerinden çalışır. Her seçenek için farklı işlemler atanır ve hangi seçenek gelmişse onun işlemleri yapılır.
+`switch-case` yapısı seçenekler üzerinden çalışır. Her seçenek için farklı işlemler atanır ve hangi seçenek gelirse onun işlemleri yapılır.
 
 ```C
 switch (secenekler){
-    case secenek1: 
+    case seenek1: 
         yapılacak işlemler ; 
         break;
     case secenek2: 
@@ -265,7 +265,7 @@ switch (secenekler){
 
 **while**
 
-`while`, parantez içerisindeki ifade sağlanıyorsa içerisindeki işlemleri gerçekleştirir. Daha sonra tekrar başa döner ve işlemlerden sonra da ifadenin sağlanıp sağlanmadığını test eder. Eğer hala sağlanıyorsa tekrar işlemleri yapar. İşlemler ifadeyi bozana kadar döngü bu şekilde devam eder.
+`while`, parantez içerisindeki ifade sağlanıyorsa içerisindeki işlemleri gerçekleştirir. Daha sonra tekrar başa döner ve işlemlerden sonra tekrar ifadenin sağlanıp sağlanmadığını test eder. Eğer hala sağlanıyorsa işlemler tekrar yapılır. İşlemler ifadeyi bozana kadar döngü bu şekilde devam eder.
 
 
 ```C++
@@ -275,7 +275,7 @@ while(ifade){
 ```
 **do-while**
 
-`do-while` döngüsünde önce içerisindeki işlemler yapılır ve işlemler bitirdikten sonra while içerisindeki koşul test edilir. Koşul sağlanıyorsa tekrar do’ya döner, aksi halde döngüden çıkar. 
+`do-while` döngüsünde önce içerisindeki işlemler yapılır ve işlemler bitirdikten sonra while içerisindeki koşul test edilir. Koşul sağlanıyorsa tekrar `do`’ya dönülür, aksi halde döngüden çıkılır. 
 
 ```C++
 do{
@@ -285,21 +285,22 @@ do{
 
 **for**
 
-`for` döngüsü de while gibi içindeki şart sağlandığı sürece döngüye devam eder. Şart bozulduğunda döngüden çıkılır.
-while’den farklı olarak kesin bir ifadeyi test etmez ve değişken bir ifade kullanır. Kendi içinde işlemler yaparak döngü işlemlerine veri verebilir.
-
+`for` döngüsü de `while` gibi içindeki şart sağlandığı sürece döngüye devam eder. Şart bozulduğunda döngüden çıkılır.
+while’den farklı olarak kesin bir ifadeyi test etmez ve değişken bir ifade kullanır. Kendi şartını kendi içerisindeki işlemle deüiştirir.
 
 ```C++
 for(i=0;i<#;i++){
     yapılacak işlemler;
 }
 ```
+i 0'dan başlar ve her başa dönüldüğünde 1'er 1'er artar. Döngü i, #'e eşit olduğunda durdurulur.
+
 <a name="4"/>   
 
 ## 4. Fonksiyonlar
 *8, 9, 10 ve 11. örnekler bu bölümle ilgilidir.*
 
-`int main()` dışında tanımlanan ve `int main()` içerisinde çağırıldığında bi takım işlemler ve sonuç ile gelen yapılardır.
+`int main()` dışında tanımlanan ve `int main()` içerisinde çağırıldığında bi takım işlemler ve/veya sonuç ile gelen yapılardır.
 
 **void fonksiyonu**
 
@@ -341,7 +342,7 @@ int faktoriyel(int sayi){
    }
 }
 ```
-Burada faktöriyel kendisine gelen sayıyı bir azaltarak tekrar kendi içine göndermektedir. Böylelikle sayı 1 olana kadar her bir azaltılıp çarpılarak sayının faktöriyeline ulaşmaktadır.
+Burada faktöriyel kendisine gelen sayıyı bir azaltarak tekrar kendi içine göndermektedir. Böylelikle sayı 1 olana kadar her seferinde bir azaltılıp önceki değerle çarpılarak sayının faktöriyeline ulaşmaktadır.
 
 **Rastgele Sayı Üreten Fonksiyon**
 
