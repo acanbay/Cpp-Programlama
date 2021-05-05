@@ -1,7 +1,7 @@
 # C++ Programlama
 Kısa bilgilendirmeler ve örnekleri içermektedir.
  
-[C++ ile Yapısal Programlama](#nyp) 
+[C++ ile Yapısal Programlama](#nnyp) 
  
 [1. Giriş](#1)  
 [2. Kontrol Yapıları](#2)  
@@ -19,9 +19,10 @@ Kısa bilgilendirmeler ve örnekleri içermektedir.
 [10. Kalıtım (Inheritance)](#10)  
 [11. Overloading](#11)  
 [12. İleri NYP](#12)  
-[13. Hata Ayıklama](#13)
+[13. Hata Ayıklama](#13)  
 [14. Kütüphane Oluşturma](#14) 
 
+<a name="nnyp"/> 
 <a name="1"/>
 
 ## 1. Giriş
