@@ -19,7 +19,7 @@ Kısa bilgilendirmeler ve örnekleri içermektedir.
 [10. Kalıtım (Inheritance)](#10)  
 [11. Overloading](#11)  
 [12. İleri NYP](#12)  
-[13. Hata Ayıklama](#13) 
+[13. Hata Ayıklama](#13)
 [14. Kütüphane Oluşturma](#14) 
 
 <a name="1"/>
